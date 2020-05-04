@@ -1,0 +1,26 @@
+//font-weight
+$font-weights: 500, 600, 700;
+
+@each $fw in $font-weights {
+	.fw-#{$fw} {
+		font-weight: $fw;
+	}
+}
+
+//font-size
+$font-sizes: 10, 12, 16, 18, 20, 24, 32;
+
+@each $fz in $font-sizes {
+	.fz-#{$fz} {
+		font-size: #{$fz}px;
+	}
+}
+
+// line-height
+$line-heights: 14, 16, 20, 22, 26, 28, 44;
+
+@each $lh in $line-heights {
+	.lh-#{$lh} {
+		line-height: #{$lh}px;
+	}
+}
