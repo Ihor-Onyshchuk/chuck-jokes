@@ -19,6 +19,12 @@ $btn-border-radius-lg: 10px;
 
 $card-border-radius: 20px;
 $card-bg: #f8f8f8;
+$card-spacer-y: 1rem;
+$card-spacer-x: 1rem;
+
+$light: #f8f8f8;
+
+$box-shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
 
 $spacers: map-merge(
 	(
