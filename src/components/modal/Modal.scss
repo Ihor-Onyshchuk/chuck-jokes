@@ -1,47 +1,56 @@
 .modal {
-	position: absolute;
+  position: fixed;
 
-	width: 100%;
-	height: 100%;
+  width: 100%;
+  height: 100%;
 
-	background: #f8f8f8;
+  background: #f8f8f8;
 
-	.nav-btn-close {
-		position: relative;
-		width: 28px;
-		height: 28px;
+  top: 0;
+  left: 0;
+  z-index: 1020;
 
-		background: #333333;
-		border-radius: 50%;
+  .modal-content {
+    height: 100%;
+    overflow-y: auto;
+  }
 
-		.line-wrapper {
-			position: absolute;
-			top: 50%;
-			left: 50%;
+  .nav-btn-close {
+    position: relative;
+    width: 28px;
+    height: 28px;
 
-			transform: translate(-50%, -50%);
-			transition: rotate linear 0.2s;
+    background: #333333;
+    border-radius: 50%;
 
-			.nav-line {
-				position: absolute;
-				width: 14px;
-				height: 2px;
+    .line-wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
 
-				background: #ffffff;
-				border-radius: 2px;
-			}
+      transform: translate(-50%, -50%);
+      transition: rotate linear 0.2s;
 
-			.line-1 {
-				rotate: -45deg;
-			}
+      .nav-line {
+        position: absolute;
+        width: 14px;
+        height: 2px;
 
-			.line-2 {
-				rotate: 45deg;
-			}
-		}
-	}
+        background: #ffffff;
+        border-radius: 2px;
+      }
 
-	.card {
-		background: #f8f8f8;
-	}
+      .line-1 {
+        rotate: -45deg;
+      }
+
+      .line-2 {
+        rotate: 45deg;
+      }
+    }
+  }
+
+  .card {
+    background: #f8f8f8;
+  }
 }
