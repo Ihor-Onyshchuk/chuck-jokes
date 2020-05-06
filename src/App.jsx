@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Modal from './components/modal/Modal';
+import TestChukApi from './components/api/ChukApiTest';
 
 const App = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -194,6 +195,10 @@ const App = () => {
           </div>
         </div>
       </section>
+
+      {/* test api */}
+
+      <TestChukApi />
     </>
   );
 };
