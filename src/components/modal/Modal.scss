@@ -15,41 +15,6 @@
     overflow-y: auto;
   }
 
-  .nav-btn-close {
-    position: relative;
-    width: 28px;
-    height: 28px;
-
-    background: #333333;
-    border-radius: 50%;
-
-    .line-wrapper {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-
-      transform: translate(-50%, -50%);
-      transition: rotate linear 0.2s;
-
-      .nav-line {
-        position: absolute;
-        width: 14px;
-        height: 2px;
-
-        background: #ffffff;
-        border-radius: 2px;
-      }
-
-      .line-1 {
-        rotate: -45deg;
-      }
-
-      .line-2 {
-        rotate: 45deg;
-      }
-    }
-  }
-
   .card {
     background: #f8f8f8;
   }

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Modal from './components/modal/Modal';
 import TestChukApi from './components/api/ChukApiTest';
+import ToggleModal from './components/toggleModal/ToggleModal';
 
 const handlePreventScroll = action =>
   document.body.classList[action]('no-scroll');
@@ -9,24 +10,13 @@ const App = () => {
   const [isModalOpen, toggleModalOpen] = useState(false);
 
   handlePreventScroll(isModalOpen ? 'add' : 'remove');
-
   return (
     <>
       <header className="header">
         <div className="container">
           <nav class="navbar navbar-light nav my-2">
             <a class="navbar-brand lh-28 fz-20 fw-700 p-0 ">MSI 2020</a>
-            <div className="nav-right d-flex">
-              <div className="nav-btn" onClick={() => toggleModalOpen(true)}>
-                <div className="line-wrapper  d-flex justify-content-center">
-                  <span className="nav-line line-1"></span>
-                  <span className="nav-line line-2"></span>
-                </div>
-              </div>
-              <span className="nav-text ml-2 text-muted lh-28 fz-20 fw-700">
-                Favourite
-              </span>
-            </div>
+            <ToggleModal onClick={toggleModalOpen} active={isModalOpen} />
           </nav>
         </div>
       </header>

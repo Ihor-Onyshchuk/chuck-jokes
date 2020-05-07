@@ -19,43 +19,6 @@
 // Base stuff
 @import './assets/scss/base';
 
-// Nav
-.nav {
-  .nav-right {
-    .nav-btn {
-      position: relative;
-      width: 28px;
-      height: 28px;
-
-      background: #333333;
-      border-radius: 50%;
-
-      .line-wrapper {
-        position: absolute;
-        width: 28px;
-        height: 8px;
-        top: 50%;
-        left: 50%;
-
-        transform: translate(-50%, -50%);
-
-        .nav-line {
-          position: absolute;
-          width: 14px;
-          height: 2px;
-
-          background: #ffffff;
-          border-radius: 2px;
-        }
-
-        .line-2 {
-          top: 6px;
-        }
-      }
-    }
-  }
-}
-
 // Category btn
 .category-btn {
   max-width: 120px;

@@ -1,0 +1,45 @@
+.modal-close-btn {
+  position: relative;
+  width: 28px;
+  height: 28px;
+
+  background: #333333;
+  border-radius: 50%;
+
+  .line-wrapper {
+    width: 14px;
+    height: 2px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    .btn-line {
+      position: absolute;
+      width: 14px;
+      height: 2px;
+
+      background: #ffffff;
+      border-radius: 2px;
+    }
+
+    .line-1 {
+      transform: translateY(-3px);
+
+      &.active {
+        transform: translateY(0px);
+        rotate: -45deg;
+      }
+    }
+
+    .line-2 {
+      transform: translateY(3px);
+
+      &.active {
+        transform: translateY(0px);
+        rotate: 45deg;
+      }
+    }
+  }
+}
