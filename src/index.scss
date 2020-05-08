@@ -21,17 +21,11 @@
 
 // Category btn
 .category-btn {
-  max-width: 120px;
-  padding: 0.3rem 0.75rem;
-  margin-top: 0.5rem;
-
-  line-height: 0.8rem;
-  font-size: 0.6rem;
+  margin-top: 0.625rem;
   font-weight: 500;
 
   background: #fff;
   border: 2px solid #f8f8f8;
-  border-radius: 6px;
 
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -59,31 +53,5 @@
 
   &:hover {
     opacity: 1;
-  }
-}
-
-// Card
-.card {
-  max-width: 680px;
-
-  .message {
-    position: relative;
-    width: 40px;
-    height: 40px;
-
-    border-radius: 50%;
-    background-color: white;
-
-    .message-inner {
-      position: absolute;
-
-      width: 20px;
-      height: 20px;
-
-      top: 50%;
-      left: 50%;
-
-      transform: translate(-50%, -50%);
-    }
   }
 }

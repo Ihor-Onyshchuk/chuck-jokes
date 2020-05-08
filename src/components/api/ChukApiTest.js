@@ -1,42 +1,50 @@
 import React, {PureComponent} from 'react';
 import axios from 'axios';
+import Card from '../card/Card';
 
 export default class TestChukApi extends PureComponent {
   state = {
-    joke: {
-      id: '',
-      value: '',
-      updatedAt: '',
-      category: '',
-    },
+    id: '',
+    value: '',
+    updatedAt: '',
+    category: '',
     searchWord: '',
+    isFetching: null,
+    isFavourite: false,
+    isFavouriteList: false,
   };
 
   getRandomJoke = () => {
+    this.setState({
+      isFetching: true,
+    });
     axios.get('https://api.chucknorris.io/jokes/random').then(res => {
       const {id, value, updated_at} = res.data;
       this.setState({
-        joke: {
-          id: id,
-          value: value,
-          updatedAt: updated_at,
-        },
+        id: id,
+        value: value,
+        updatedAt: updated_at,
+
+        isFetching: false,
       });
     });
   };
 
   getJokeWithCat = () => {
+    this.setState({
+      isFetching: true,
+    });
     axios
       .get('https://api.chucknorris.io/jokes/random?category=celebrity')
       .then(res => {
         const {id, value, updated_at, categories} = res.data;
         this.setState({
-          joke: {
-            id: id,
-            value: value,
-            updatedAt: updated_at,
-            category: categories[0],
-          },
+          id: id,
+          value: value,
+          updatedAt: updated_at,
+          category: categories[0],
+
+          isFetching: false,
         });
       });
   };
@@ -45,10 +53,14 @@ export default class TestChukApi extends PureComponent {
     const value = event.target.value;
     this.setState({
       searchWord: value,
+      isFetching: false,
     });
   };
 
   searchJoke = () => {
+    this.setState({
+      isFetching: true,
+    });
     axios
       .get(
         `https://api.chucknorris.io/jokes/search?query=${this.state.searchWord}`
@@ -63,35 +75,23 @@ export default class TestChukApi extends PureComponent {
             updatedAt: updated_at,
             category: categories,
           },
+          isFetching: false,
+
           searchWord: '',
         });
       });
   };
 
   render() {
-    const {id, value, updatedAt, category} = this.state.joke;
-
     return (
-      <div>
+      <>
         <div className="container">
           <h2>Test Chuk Api</h2>
           <div className="row">
             <div className="col">
-              <h3>Random joke</h3>
-              <div>
-                <p>
-                  <u>joke:</u> {value}
-                </p>
-              </div>
-              <div>
-                <u>id:</u> {id}
-              </div>
-              <div>
-                <u>Updated-at:</u> {updatedAt}
-              </div>
-              <div>
-                <u>category:</u> {category}
-              </div>
+              <Card {...this.state} />
+              {/* Favourite list card */}
+              <Card {...this.state} />
               <button className="d-block" onClick={() => this.getRandomJoke()}>
                 get random joke
               </button>
@@ -107,7 +107,8 @@ export default class TestChukApi extends PureComponent {
             </div>
           </div>
         </div>
-      </div>
+        )
+      </>
     );
   }
 }
