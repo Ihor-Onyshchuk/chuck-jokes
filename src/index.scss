@@ -19,39 +19,5 @@
 // Base stuff
 @import './assets/scss/base';
 
-// Category btn
-.category-btn {
-  margin-top: 0.625rem;
-  font-weight: 500;
-
-  background: #fff;
-  border: 2px solid #f8f8f8;
-
-  letter-spacing: 2px;
-  text-transform: uppercase;
-
-  color: #ababab;
-
-  &:focus,
-  &:hover,
-  &:active {
-    color: #333;
-    background: #f8f8f8;
-  }
-
-  &:not(:nth-last-child(1)) {
-    margin-right: 0.5rem;
-  }
-}
-
-// Btn
-.btn {
-  opacity: 0.9;
-  background: linear-gradient(92.01deg, #8ea7ff 0%, #7291ff 100%);
-  color: #fff;
-  transition: opacity linear 0.15s;
-
-  &:hover {
-    opacity: 1;
-  }
-}
+// Button
+@import './assets/scss/buttons';

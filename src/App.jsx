@@ -15,7 +15,7 @@ const App = () => {
     <>
       <header className="header">
         <div className="container">
-          <nav class="navbar navbar-light nav my-2">
+          <nav class="navbar navbar-light nav">
             <a class="navbar-brand lh-28 fz-20 fw-700 p-0 ">MSI 2020</a>
             <ToggleModal onClick={toggleModalOpen} active={isModalOpen} />
           </nav>
@@ -103,7 +103,7 @@ const App = () => {
                     ></input>
                   </div>
                   <button
-                    className="btn btn-primary btn-lg fw-700 fz-16 lh-22"
+                    className="btn btn-primary btn-lg btn-gradient fw-700 fz-16 lh-22"
                     type="submit"
                   >
                     Get a joke
@@ -120,7 +120,7 @@ const App = () => {
       {/* test api */}
       <TestChukApi />
       {/* Modal */}
-      {isModalOpen && (
+      {false && (
         <Modal isOpen={isModalOpen} onClose={toggleModalOpen}>
           {/* <div className="card bg-white shadow-sm border-0 mb-3 ">
             <div className="card-header bg-transparent text-right border-0 pb-0">

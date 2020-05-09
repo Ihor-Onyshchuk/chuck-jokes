@@ -8,7 +8,7 @@ $font-weights: 500, 600, 700;
 }
 
 //font-sizes
-$font-sizes: 10, 12, 14, 16, 18, 20p 24, 32;
+$font-sizes: 10, 12, 14, 16, 18, 20, 24, 32;
 
 @each $font-size in $font-sizes {
   .fz-#{$font-size} {
