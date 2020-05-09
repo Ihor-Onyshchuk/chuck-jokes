@@ -11,7 +11,9 @@ const Modal = ({isOpen, onClose, children}) => {
         <div className="container">
           <div class="row justify-content-end">
             <div className="col-auto">
-              <ToggleModal onClick={onClose} active={isOpen} />
+              <div className="py-3 px-1">
+                <ToggleModal onClick={onClose} active={isOpen} />
+              </div>
             </div>
           </div>
         </div>

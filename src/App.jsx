@@ -120,7 +120,7 @@ const App = () => {
       {/* test api */}
       <TestChukApi />
       {/* Modal */}
-      {false && (
+      {isModalOpen && (
         <Modal isOpen={isModalOpen} onClose={toggleModalOpen}>
           {/* <div className="card bg-white shadow-sm border-0 mb-3 ">
             <div className="card-header bg-transparent text-right border-0 pb-0">
