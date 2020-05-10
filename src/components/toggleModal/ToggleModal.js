@@ -1,8 +1,10 @@
 import React from 'react';
-import './ToggleModal.scss';
 import cx from 'classnames';
+import T from 'prop-types';
 
-const ToggleModal = ({onClick, active}) => {
+import './ToggleModal.scss';
+
+const ToggleModal = ({onClick, active = false}) => {
   const handleToggle = () => onClick(!active);
   return (
     <div className={cx('toggle-modal d-flex', {active})} onClick={handleToggle}>
@@ -17,6 +19,11 @@ const ToggleModal = ({onClick, active}) => {
       <span className="ml-2 text-muted lh-28 fz-20 fw-700">Favourite</span>
     </div>
   );
+};
+
+ToggleModal.propTypes = {
+  onClick: T.func.isRequired,
+  active: T.bool,
 };
 
 export default ToggleModal;

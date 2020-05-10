@@ -1,27 +1,6 @@
 .main-card {
   max-width: 680px;
   background-color: #f8f8f8;
-
-  .message {
-    position: relative;
-    width: 40px;
-    height: 40px;
-
-    border-radius: 50%;
-    background-color: white;
-
-    .message-inner {
-      position: absolute;
-
-      width: 20px;
-      height: 20px;
-
-      top: 50%;
-      left: 50%;
-
-      transform: translate(-50%, -50%);
-    }
-  }
 }
 
 .modal-card {

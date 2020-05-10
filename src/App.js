@@ -1,22 +1,38 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Modal from './components/modal/Modal';
 import TestChukApi from './components/api/ChukApiTest';
 import ToggleModal from './components/toggleModal/ToggleModal';
 import Card from './components/card/Card';
+import Categories from './components/categories/Categories';
+import {getCategories} from './components/api';
 
 const handlePreventScroll = action =>
   document.body.classList[action]('no-scroll');
 
 const App = () => {
   const [isModalOpen, toggleModalOpen] = useState(false);
+  const [mode, setMode] = useState('random');
+  const [categories, setCategories] = useState([]);
+  const [category, setCategory] = useState();
 
   handlePreventScroll(isModalOpen ? 'add' : 'remove');
+
+  useEffect(() => {
+    (async function fetchCategories() {
+      const {data} = await getCategories();
+      setCategory(data[0]);
+      setCategories(data);
+    })();
+  }, []);
+
+  const handleCategoryChange = category => setCategory(category);
+
   return (
     <>
       <header className="header">
         <div className="container">
-          <nav class="navbar navbar-light nav">
-            <a class="navbar-brand lh-28 fz-20 fw-700 p-0 ">MSI 2020</a>
+          <nav className="navbar navbar-light nav">
+            <a className="navbar-brand lh-28 fz-20 fw-700 p-0 ">MSI 2020</a>
             <ToggleModal onClick={toggleModalOpen} active={isModalOpen} />
           </nav>
         </div>
@@ -43,7 +59,7 @@ const App = () => {
                       />
                       <label
                         className="custom-control-label fz-18 lh-26 ml-2"
-                        for="exampleRadios1"
+                        htmlFor="exampleRadios1"
                       >
                         Random
                       </label>
@@ -58,29 +74,18 @@ const App = () => {
                       />
                       <label
                         className="custom-control-label fz-18 lh-26 ml-2"
-                        for="exampleRadios2"
+                        htmlFor="exampleRadios2"
                       >
                         From categories
                       </label>
                     </div>
-                    <div
-                      className="btn-group d-flex flex-wrap mt-2 mb-3 "
-                      role="group"
-                      aria-label="Basic example"
-                    >
-                      <button className="btn-sm category-btn" type="button">
-                        Animal
-                      </button>
-                      <button className="btn-sm category-btn" type="button">
-                        Career
-                      </button>
-                      <button className="btn-sm category-btn" type="button">
-                        Celebrity
-                      </button>
-                      <button className="btn-sm category-btn" type="button">
-                        Dev
-                      </button>
-                    </div>
+                    {!!categories.length && (
+                      <Categories
+                        options={categories}
+                        active={category}
+                        onChange={handleCategoryChange}
+                      />
+                    )}
                     <div className="custom-control custom-radio mt-3 mb-3">
                       <input
                         className="custom-control-input mx-1"
@@ -91,7 +96,7 @@ const App = () => {
                       />
                       <label
                         className="custom-control-label fz-18 lh-26 ml-2"
-                        for="exampleRadios3"
+                        htmlFor="exampleRadios3"
                       >
                         Search
                       </label>
