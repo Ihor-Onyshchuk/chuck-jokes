@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {getJokes} from '../components/api';
+import {getJokes} from '../api';
 
 export const useChuckApi = () => {
   const [data, setData] = useState();

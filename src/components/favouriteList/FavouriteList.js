@@ -5,7 +5,7 @@ import Card from '../card/Card';
 
 const FavouriteList = ({favourites, onFavouriteChange}) => {
   return (
-    <div>
+    <>
       {favourites.map(favourite => (
         <Card
           key={favourite.id}
@@ -15,7 +15,7 @@ const FavouriteList = ({favourites, onFavouriteChange}) => {
           onFavouriteChange={onFavouriteChange}
         />
       ))}
-    </div>
+    </>
   );
 };
 
