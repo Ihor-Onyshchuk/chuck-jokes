@@ -4,10 +4,13 @@ import T from 'prop-types';
 
 import './ToggleModal.scss';
 
-const ToggleModal = ({onClick, active = false}) => {
+const ToggleModal = ({onClick, active = false, className}) => {
   const handleToggle = () => onClick(!active);
   return (
-    <div className={cx('toggle-modal d-flex', {active})} onClick={handleToggle}>
+    <div
+      className={cx('toggle-modal d-flex', {active}, className)}
+      onClick={handleToggle}
+    >
       <div className="menu-icon">
         <span className="menu-icon-bread">
           <span className="menu-icon-bread-crust" />
@@ -24,6 +27,7 @@ const ToggleModal = ({onClick, active = false}) => {
 ToggleModal.propTypes = {
   onClick: T.func.isRequired,
   active: T.bool,
+  className: T.string,
 };
 
 export default ToggleModal;

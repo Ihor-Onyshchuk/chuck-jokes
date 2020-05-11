@@ -1,19 +1,40 @@
 import React, {useState, useEffect} from 'react';
 import Modal from './components/modal/Modal';
-import TestChukApi from './components/api/ChukApiTest';
 import ToggleModal from './components/toggleModal/ToggleModal';
 import Card from './components/card/Card';
 import Categories from './components/categories/Categories';
 import {getCategories} from './components/api';
+import {useChuckApi} from './hooks/useChuckApi';
+import RadionButton from './components/radioButton/RadioButton';
+import InputText from './components/inputText/InputText';
+import FavouriteList from './components/favouriteList/FavouriteList';
 
 const handlePreventScroll = action =>
   document.body.classList[action]('no-scroll');
+
+const getStorageItem = key => {
+  const storageItem = localStorage.getItem(key);
+  return storageItem ? JSON.parse(storageItem) : [];
+};
 
 const App = () => {
   const [isModalOpen, toggleModalOpen] = useState(false);
   const [mode, setMode] = useState('random');
   const [categories, setCategories] = useState([]);
   const [category, setCategory] = useState();
+  const [query, setQuery] = useState('');
+  const [favourites, setFavourites] = useState([]);
+  const [{data, isLoading, isError}, doFetch] = useChuckApi();
+
+  const handleFormSubmit = event => {
+    event.preventDefault();
+    const apiUrlsMapper = {
+      random: '/random',
+      categories: `/random?category=${category}`,
+      search: `/search?query=${query}`,
+    };
+    doFetch(apiUrlsMapper[mode]);
+  };
 
   handlePreventScroll(isModalOpen ? 'add' : 'remove');
 
@@ -23,174 +44,125 @@ const App = () => {
       setCategory(data[0]);
       setCategories(data);
     })();
+
+    setFavourites(getStorageItem('favourites'));
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem('favourites', JSON.stringify(favourites));
+  }, [favourites]);
 
   const handleCategoryChange = category => setCategory(category);
 
+  const handleRadioChange = event => setMode(event.target.value);
+
+  const handleInputChange = event => setQuery(event.target.value);
+
+  const handleFavouritesUpdate = joke => {
+    let nextFavourite;
+    if (favourites.some(({id}) => id === joke.id)) {
+      nextFavourite = favourites.filter(({id}) => id !== joke.id);
+    } else {
+      nextFavourite = [...favourites, joke];
+    }
+    setFavourites(nextFavourite);
+    console.log('joke', joke);
+  };
+
   return (
     <>
-      <header className="header">
-        <div className="container">
-          <nav className="navbar navbar-light nav">
-            <a className="navbar-brand lh-28 fz-20 fw-700 p-0 ">MSI 2020</a>
-            <ToggleModal onClick={toggleModalOpen} active={isModalOpen} />
-          </nav>
-        </div>
-      </header>
-      <section className="section">
-        <div className="container">
-          <div className="row">
-            {/* main */}
-            <div className="col-12">
-              <div className="main-wrapper px-1 py-2 mt-4">
-                <h1 className="title fz-32 lh-44 font-weight-bold">Hey!</h1>
-                <h2 className="subtitle fw-500 fz-24 lh-44">
-                  Let's try to find a joke for you
-                </h2>
-                <form className="form">
-                  <div className="form-group">
-                    <div className="custom-control custom-radio mb-1">
-                      <input
-                        className="custom-control-input mx-1"
-                        type="radio"
-                        name="exampleRadios"
-                        id="exampleRadios1"
-                        value="option1"
-                      />
-                      <label
-                        className="custom-control-label fz-18 lh-26 ml-2"
-                        htmlFor="exampleRadios1"
-                      >
-                        Random
-                      </label>
-                    </div>
-                    <div className="custom-control custom-radio mb-2">
-                      <input
-                        className="custom-control-input mx-1"
-                        type="radio"
-                        name="exampleRadios"
-                        id="exampleRadios2"
-                        value="option2"
-                      />
-                      <label
-                        className="custom-control-label fz-18 lh-26 ml-2"
-                        htmlFor="exampleRadios2"
-                      >
-                        From categories
-                      </label>
-                    </div>
-                    {!!categories.length && (
-                      <Categories
-                        options={categories}
-                        active={category}
-                        onChange={handleCategoryChange}
-                      />
-                    )}
-                    <div className="custom-control custom-radio mt-3 mb-3">
-                      <input
-                        className="custom-control-input mx-1"
-                        type="radio"
-                        name="exampleRadios"
-                        id="exampleRadios3"
-                        value="option3"
-                      />
-                      <label
-                        className="custom-control-label fz-18 lh-26 ml-2"
-                        htmlFor="exampleRadios3"
-                      >
-                        Search
-                      </label>
-                    </div>
-                    <input
-                      className="form-control search mb-3 fz-16 lh-22 px-2 py-2"
-                      type="text"
-                      placeholder="Free text search..."
-                    ></input>
-                  </div>
-                  <button
-                    className="btn btn-primary btn-lg btn-gradient fw-700 fz-16 lh-22"
-                    type="submit"
-                  >
-                    Get a joke
-                  </button>
-                </form>
+      <div className="container">
+        <div className="row">
+          <div className="col-12 col-xl-8">
+            <nav className="navbar">
+              <h1 className="navbar-brand lh-28 fw-700 p-0">MSI 2020</h1>
+              <ToggleModal
+                onClick={toggleModalOpen}
+                active={isModalOpen}
+                className="d-xl-none"
+              />
+            </nav>
+            <h2 className="fz-32 lh-44 fw-700 px-1">Hey!</h2>
+            <h4 className="fw-500 fz-24 lh-44 px-1">
+              Let's try to find a joke for you
+            </h4>
+            <form className="form" onSubmit={handleFormSubmit}>
+              <div className="form-group">
+                <RadionButton
+                  label="Random"
+                  name="joke"
+                  value="random"
+                  active={mode}
+                  onChange={handleRadioChange}
+                />
+                <RadionButton
+                  label="From categories"
+                  name="joke"
+                  value="categories"
+                  active={mode}
+                  onChange={handleRadioChange}
+                />
+                {mode === 'categories' && !!categories.length ? (
+                  <Categories
+                    options={categories}
+                    active={category}
+                    onChange={handleCategoryChange}
+                  />
+                ) : null}
+                <RadionButton
+                  label="Search"
+                  name="joke"
+                  value="search"
+                  active={mode}
+                  onChange={handleRadioChange}
+                />
+                {mode === 'search' && (
+                  <InputText
+                    value={query}
+                    onChange={handleInputChange}
+                    placeholder="Free text search"
+                  />
+                )}
               </div>
-            </div>
-
-            {/* cards */}
-            <div className="col-12">{/* <Card /> */}</div>
+              <button
+                className="btn btn-lg btn-primary btn-lg btn-gradient fw-700 lh-22"
+                type="submit"
+              >
+                Get a joke
+              </button>
+            </form>
+            {isLoading && 'loading...'}
+            {!isLoading && isError && 'Error'}
+            {!isLoading && !!data?.result.length
+              ? data.result.map(joke => (
+                  <Card
+                    key={joke.id}
+                    joke={joke}
+                    isFavourite={favourites.some(({id}) => id === joke.id)}
+                    onFavouriteChange={handleFavouritesUpdate}
+                  />
+                ))
+              : 'Not found'}
+          </div>
+          <div className="d-none d-xl-flex col-xl-4">
+            <h5>Favourite</h5>
+            <FavouriteList
+              favourites={favourites}
+              onFavouriteChange={handleFavouritesUpdate}
+            />
           </div>
         </div>
-      </section>
-      {/* test api */}
-      <TestChukApi />
-      {/* Modal */}
+      </div>
       {isModalOpen && (
-        <Modal isOpen={isModalOpen} onClose={toggleModalOpen}>
-          {/* <div className="card bg-white shadow-sm border-0 mb-3 ">
-            <div className="card-header bg-transparent text-right border-0 pb-0">
-              <svg
-                width="20"
-                height="17"
-                viewBox="0 0 20 17"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M18.4134 1.66367C17.3781 0.590857 15.9575 0 14.413 0C13.2585 0 12.2012 0.348712 11.2704 1.03637C10.8008 1.38348 10.3752 1.80814 10 2.3038C9.62494 1.80829 9.19922 1.38348 8.7294 1.03637C7.79877 0.348712 6.74149 0 5.58701 0C4.04251 0 2.62177 0.590857 1.58646 1.66367C0.563507 2.72395 0 4.17244 0 5.74252C0 7.35852 0.630341 8.83778 1.98364 10.3979C3.19427 11.7935 4.93423 13.2102 6.94916 14.8507C7.63718 15.411 8.41705 16.046 9.22684 16.7224C9.44077 16.9015 9.71527 17 10 17C10.2846 17 10.5592 16.9015 10.7729 16.7227C11.5826 16.0461 12.363 15.4108 13.0513 14.8503C15.0659 13.2101 16.8059 11.7935 18.0165 10.3978C19.3698 8.83778 20 7.35852 20 5.74238C20 4.17244 19.4365 2.72395 18.4134 1.66367Z"
-                  fill="#FF6767"
-                />
-              </svg>
-            </div>
-            <div className="card-body px-3 pt-2 pb-3">
-              <div className="row">
-                <div className="col-auto">
-                  <div className="message position-relative bg-light">
-                    <div className="message-inner position-absolute">
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 20 20"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M17.2504 0H2.74963C1.23352 0 0 1.23328 0 2.74963V11.6238C0 13.1367 1.22815 14.368 2.73987 14.3734V18.4004L8.5271 14.3734H17.2504C18.7665 14.3734 20 13.1399 20 11.6238V2.74963C20 1.23328 18.7665 0 17.2504 0ZM18.8281 11.6238C18.8281 12.4937 18.1204 13.2015 17.2504 13.2015H8.15942L3.91174 16.1573V13.2015H2.74963C1.87964 13.2015 1.17188 12.4937 1.17188 11.6238V2.74963C1.17188 1.87952 1.87964 1.17188 2.74963 1.17188H17.2504C18.1204 1.17188 18.8281 1.87952 18.8281 2.74963V11.6238Z"
-                          fill="#ABABAB"
-                        />
-                        <path
-                          d="M5.35303 4.14075H14.6472V5.31262H5.35303V4.14075Z"
-                          fill="#ABABAB"
-                        />
-                        <path
-                          d="M5.35303 6.64075H14.6472V7.81262H5.35303V6.64075Z"
-                          fill="#ABABAB"
-                        />
-                        <path
-                          d="M5.35303 9.14075H14.6472V10.3126H5.35303V9.14075Z"
-                          fill="#ABABAB"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-                <div className="col">
-                  <div className="card-title fz-10 lh-14 fw-500">
-                    <span className="text-muted">ID: </span>
-                    <a href="#">XNaAxUduSw6zANDaIEab7A</a>
-                  </div>
-                  <p className="card-text fz-14 lh-20">
-                    No one truly knows who's Chuck Norris' real father. No one
-                    is biologically strong enough for this. He must've conceived
-                    himself.
-                  </p>
-                  <p className="text-muted fz-10 lh-14 pt-2">
-                    Last update: 1923 hours ago
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div> */}
+        <Modal
+          isOpen={isModalOpen}
+          onClose={toggleModalOpen}
+          className="d-xl-none"
+        >
+          <FavouriteList
+            favourites={favourites}
+            onFavouriteChange={handleFavouritesUpdate}
+          />
         </Modal>
       )}
     </>

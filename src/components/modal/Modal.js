@@ -1,12 +1,13 @@
 import React from 'react';
 import {createPortal} from 'react-dom';
 import T from 'prop-types';
+import cx from 'classnames';
 
 import './Modal.scss';
 
-const Modal = ({onClose, children}) => {
+const Modal = ({onClose, children, className}) => {
   return createPortal(
-    <div className="modal">
+    <div className={cx('modal', className)}>
       <div className="modal-backdrop" onClick={onClose} />
       <div className="modal-content">
         <div className="container">
