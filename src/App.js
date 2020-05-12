@@ -46,9 +46,9 @@ const App = () => {
 
   return (
     <>
-      <div className="container">
+      <div className="container-xl">
         <div className="row">
-          <div className="col-12 col-xl-8">
+          <div className="col-12 col-xl-7 layout-offset-x">
             <Header
               toggleModalOpen={toggleModalOpen}
               isModalOpen={isModalOpen}
@@ -60,13 +60,15 @@ const App = () => {
               fetchedData={fetchedData}
               favourites={favourites}
               onFavouriteChange={handleFavouritesUpdate}
+              className="main-card rounded-lg"
             />
           </div>
-          <div className="d-none d-xl-flex col-xl-4">
-            <h5>Favourite</h5>
+          <div className="d-none d-xl-flex col-xl-5 layout-offset-x flex-column bg-light">
+            <h5 className="fw-500 fz-20 lh-28 color-light">Favourite</h5>
             <FavouriteList
               favourites={favourites}
               onFavouriteChange={handleFavouritesUpdate}
+              className="modal-card rounded-sm"
             />
           </div>
         </div>
@@ -80,6 +82,7 @@ const App = () => {
           <FavouriteList
             favourites={favourites}
             onFavouriteChange={handleFavouritesUpdate}
+            className="modal-card rounded-sm"
           />
         </Modal>
       </Animation>

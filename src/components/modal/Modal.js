@@ -7,10 +7,11 @@ import cx from 'classnames';
 import './Modal.scss';
 
 const Modal = ({onClose, children, className}) => {
+  const handleModalClose = () => onClose(false);
   return createPortal(
     <div className={cx('modal', className)}>
-      <div className="modal-backdrop" onClick={onClose} />
-      <div className="modal-content">
+      <div className="modal-backdrop" onClick={handleModalClose} />
+      <div className="modal-content bg-light">
         <div className="container">
           <div className="row">
             <div className="col-12">{children}</div>

@@ -22,3 +22,11 @@ body {
 .no-scroll {
   overflow: hidden;
 }
+
+.layout-offset-x {
+  padding: 20px;
+
+  @media (min-width: 768px) {
+    padding: 40px;
+  }
+}

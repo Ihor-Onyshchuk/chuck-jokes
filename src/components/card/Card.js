@@ -10,18 +10,12 @@ const Card = ({
   inFavouriteList,
   isFavourite,
   onFavouriteChange,
-  className = 'mb-3',
+  className,
 }) => {
   const {id, value, updated_at, categories, url, icon_url} = joke;
   const handleFavouriteChange = () => onFavouriteChange(joke);
   return (
-    <div
-      className={cx(
-        'main-card border-0',
-        {'rounded-sm': inFavouriteList},
-        className
-      )}
-    >
+    <div className={cx('border-0 mb-3', className)}>
       <div className="card-header bg-transparent text-right border-0 pb-0">
         <span
           className={`icon-heart${isFavourite ? '-fill' : ''} text-danger`}

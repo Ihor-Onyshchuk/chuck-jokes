@@ -34,7 +34,7 @@ const Form = ({onSubmit}) => {
   };
 
   return (
-    <form className="form" onSubmit={handleFormSubmit}>
+    <form className="form mb-4" onSubmit={handleFormSubmit}>
       <div className="form-group">
         <RadionButton
           label="Random"
@@ -73,7 +73,7 @@ const Form = ({onSubmit}) => {
         )}
       </div>
       <button
-        className="btn btn-lg btn-primary btn-lg btn-gradient fw-700 lh-22"
+        className="btn btn-lg btn-primary btn-gradient fw-700 lh-22"
         type="submit"
       >
         Get a joke

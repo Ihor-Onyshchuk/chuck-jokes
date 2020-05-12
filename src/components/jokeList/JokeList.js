@@ -3,7 +3,7 @@ import T from 'prop-types';
 
 import Card from '../card/Card';
 
-const JokeList = ({favourites, onFavouriteChange, fetchedData}) => {
+const JokeList = ({favourites, onFavouriteChange, fetchedData, className}) => {
   const {data, isLoading, isError} = fetchedData;
   return (
     <>
@@ -16,6 +16,7 @@ const JokeList = ({favourites, onFavouriteChange, fetchedData}) => {
               joke={joke}
               isFavourite={favourites.some(({id}) => id === joke.id)}
               onFavouriteChange={onFavouriteChange}
+              className={className}
             />
           ))
         : 'Not found'}
