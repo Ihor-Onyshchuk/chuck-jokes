@@ -23,10 +23,20 @@ body {
   overflow: hidden;
 }
 
-.layout-offset-x {
+.layout-offset {
+  &-x {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
   padding: 20px;
 
   @media (min-width: 768px) {
     padding: 40px;
+
+    &-x {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
   }
 }

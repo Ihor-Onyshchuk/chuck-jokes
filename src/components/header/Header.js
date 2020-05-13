@@ -1,5 +1,6 @@
 import React from 'react';
 import T from 'prop-types';
+import cx from 'classnames';
 
 import ToggleModal from '../toggleModal/ToggleModal';
 
@@ -11,7 +12,7 @@ const Header = ({toggleModalOpen, isModalOpen}) => {
         <ToggleModal
           onClick={toggleModalOpen}
           active={isModalOpen}
-          className="d-xl-none "
+          className={cx('d-xl-none', {'layout-offset-x': isModalOpen})}
         />
       </nav>
       <h2 className="fz-32 lh-44 fw-700">Hey!</h2>

@@ -4,6 +4,7 @@ import T from 'prop-types';
 
 import Avatar from '../avatar/Avatar';
 import './Card.scss';
+import {dateToHours} from '../../utils/dateToHours';
 
 const Card = ({
   joke,
@@ -41,7 +42,7 @@ const Card = ({
               {value}
             </p>
             <p className="text-muted fz-10 lh-14 mb-2">
-              Last update: {updated_at}
+              Last update: {dateToHours(updated_at)} hours ago
             </p>
             {!!categories.length &&
               categories.map(category => (

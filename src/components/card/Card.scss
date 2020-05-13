@@ -1,6 +1,27 @@
-.main-card {
+.card-wrapper {
+  width: 100%;
+  height: auto;
+  min-height: 137px;
   max-width: 680px;
-  background-color: #f8f8f8;
+  position: relative;
+
+  .main-card {
+    max-width: 680px;
+    background-color: #f8f8f8;
+  }
+
+  // Btn
+  .card-category {
+    color: #333;
+    background: #fff;
+
+    border-radius: 6px;
+    border-width: 0;
+
+    &:hover {
+      background: #fff;
+    }
+  }
 }
 
 .modal-card {
@@ -11,18 +32,5 @@
 
   .message {
     background-color: #f8f8f8;
-  }
-}
-
-// Btn
-.card-category {
-  color: #333;
-  background: #fff;
-
-  border-radius: 6px;
-  border-width: 0;
-
-  &:hover {
-    background: #fff;
   }
 }

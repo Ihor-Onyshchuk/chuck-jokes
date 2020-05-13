@@ -14,7 +14,7 @@ const Modal = ({onClose, children, className}) => {
       <div className="modal-content bg-light">
         <div className="container">
           <div className="row">
-            <div className="col-12">{children}</div>
+            <div className="col-12 layout-offset">{children}</div>
           </div>
         </div>
       </div>
