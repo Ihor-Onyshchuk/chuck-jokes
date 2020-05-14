@@ -25,6 +25,7 @@ const Form = ({onSubmit}) => {
 
   const handleFormSubmit = event => {
     event.preventDefault();
+    if (mode === 'search' && query.trim() === '') return;
     const apiUrlsMapper = {
       random: '/random',
       categories: `/random?category=${category}`,

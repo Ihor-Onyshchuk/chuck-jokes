@@ -3,18 +3,22 @@ import T from 'prop-types';
 
 import Card from '../card/Card';
 import Spiner from '../spiner/Spiner';
+import Alert from '../alert/Alert';
 
 const JokeList = ({favourites, onFavouriteChange, fetchedData, className}) => {
   const {data, isLoading, isError} = fetchedData;
+  const showInit = !isLoading && data === undefined;
+  const showError = !isLoading && isError;
+  const showData = !isLoading && !isError && !!data?.result.length;
+  const showEmpty = !isLoading && !isError && !showInit && !data?.result.length;
+
   return (
     <div className="card-wrapper">
-      {isLoading && <Spiner />}
-      {!isLoading && isError && (
-        <div class="alert alert-danger" role="alert">
-          Something go wrong!
-        </div>
+      {showInit && (
+        <Alert text=" Click on the button above for getting a joke " />
       )}
-      {!isLoading && !!data?.result.length && !isError ? (
+      {isLoading && <Spiner />}
+      {showData &&
         data.result.map(joke => (
           <Card
             key={joke.id}
@@ -23,12 +27,10 @@ const JokeList = ({favourites, onFavouriteChange, fetchedData, className}) => {
             onFavouriteChange={onFavouriteChange}
             className={className}
           />
-        ))
-      ) : (
-        <div class="alert alert-info" role="alert">
-          Joke Not found
-        </div>
-      )}
+        ))}
+
+      {showEmpty && <Alert type="secondary" text="No jokes" />}
+      {showError && <Alert type="danger" text="Something go wrong!" />}
     </div>
   );
 };

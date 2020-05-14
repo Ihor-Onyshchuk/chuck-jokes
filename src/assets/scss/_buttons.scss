@@ -1,11 +1,15 @@
 // Category btn
-.category-btn {
+%category-shared {
   margin-top: 0.625rem;
   font-weight: 500;
-  background: #fff;
-  border: 2px solid #f8f8f8;
   letter-spacing: 2px;
   text-transform: uppercase;
+}
+
+.category-btn {
+  @extend %category-shared;
+  background: #fff;
+  border: 2px solid #f8f8f8;
   color: #ababab;
 
   &:focus,
@@ -20,7 +24,20 @@
   }
 }
 
-// Btn
+.card-category {
+  @extend %category-shared;
+  color: #333;
+  border-radius: 6px;
+
+  &.light {
+    background: #fff;
+  }
+
+  &.gray {
+    background: #f8f8f8;
+  }
+}
+
 .btn-gradient {
   opacity: 0.9;
   background: linear-gradient(92.01deg, #8ea7ff 0%, #7291ff 100%);

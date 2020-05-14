@@ -60,7 +60,7 @@ const App = () => {
               fetchedData={fetchedData}
               favourites={favourites}
               onFavouriteChange={handleFavouritesUpdate}
-              className="main-card rounded-lg"
+              className="main-card rounded-lg mb-3 p-md-4"
             />
           </div>
           <div className="d-none d-xl-flex col-xl-5 layout-offset flex-column bg-light">

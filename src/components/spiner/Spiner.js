@@ -3,8 +3,8 @@ import './Spiner.scss';
 
 const Spiner = () => {
   return (
-    <div class="loading-spiner">
-      <div class="loading">
+    <div className="loading-spiner">
+      <div className="loading">
         <div></div>
         <div></div>
         <div></div>
