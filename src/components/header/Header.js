@@ -6,7 +6,7 @@ import ToggleModal from '../toggleModal/ToggleModal';
 
 const Header = ({toggleModalOpen, isModalOpen}) => {
   return (
-    <header>
+    <header className="mb-4 pb-2">
       <nav className="navbar pt-0">
         <h1 className="navbar-brand lh-28 fw-700 p-0">MSI 2020</h1>
         <ToggleModal

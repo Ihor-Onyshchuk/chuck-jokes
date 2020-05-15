@@ -35,7 +35,7 @@ const Form = ({onSubmit}) => {
   };
 
   return (
-    <form className="form mb-4" onSubmit={handleFormSubmit}>
+    <form className="form mb-4 pt-1" onSubmit={handleFormSubmit}>
       <div className="form-group">
         <RadionButton
           label="Random"

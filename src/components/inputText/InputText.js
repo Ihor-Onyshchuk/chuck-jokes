@@ -2,8 +2,6 @@ import React from 'react';
 import cx from 'classnames';
 import T from 'prop-types';
 
-import './InputText.scss';
-
 const InputText = ({
   placeholder,
   value,

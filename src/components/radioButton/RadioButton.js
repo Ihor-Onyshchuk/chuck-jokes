@@ -2,8 +2,6 @@ import React from 'react';
 import cx from 'classnames';
 import T from 'prop-types';
 
-import './RadioButton.scss';
-
 const RadionButton = ({
   label,
   active,
@@ -23,7 +21,7 @@ const RadionButton = ({
         checked={value === active}
         onChange={onChange}
       />
-      <label className="custom-control-label fz-18 lh-26 ml-2" htmlFor={value}>
+      <label className="custom-control-label fz-18 lh-26" htmlFor={value}>
         {label}
       </label>
     </div>

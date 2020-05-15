@@ -1,3 +1,13 @@
+%before-after-shared {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 50%;
+  height: 2px;
+  background: #fff;
+  transform: translateX(-50%);
+}
+
 .toggle-modal {
   position: relative;
   z-index: 1030;
@@ -11,25 +21,13 @@
     border-radius: 50%;
 
     &:before {
-      content: '';
-      position: absolute;
+      @extend %before-after-shared;
       top: 10px;
-      left: 50%;
-      width: 50%;
-      height: 2px;
-      background: #fff;
-      transform: translateX(-50%);
     }
 
     &:after {
-      content: '';
-      position: absolute;
+      @extend %before-after-shared;
       bottom: 10px;
-      left: 50%;
-      width: 50%;
-      height: 2px;
-      background: #fff;
-      transform: translateX(-50%);
     }
   }
 
