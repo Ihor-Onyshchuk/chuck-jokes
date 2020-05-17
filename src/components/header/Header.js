@@ -12,7 +12,7 @@ const Header = ({toggleModalOpen, isModalOpen}) => {
         <ToggleModal
           onClick={toggleModalOpen}
           active={isModalOpen}
-          className={cx('d-xl-none', {'layout-offset-x': isModalOpen})}
+          className={cx('d-xl-none', {'px-md-3': isModalOpen})}
         />
       </nav>
       <h2 className="fz-32 lh-44 fw-700">Hey!</h2>

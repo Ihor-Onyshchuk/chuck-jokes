@@ -5,8 +5,13 @@ import Card from '../card/Card';
 import Spiner from '../spiner/Spiner';
 import Alert from '../alert/Alert';
 
-const JokeList = ({favourites, onFavouriteChange, fetchedData, className}) => {
-  const {data, isLoading, isError} = fetchedData;
+const JokeList = ({
+  favourites,
+  onFavouriteChange,
+  apiRequestData,
+  className,
+}) => {
+  const {data, isLoading, isError} = apiRequestData;
   const showInit = !isLoading && data === undefined;
   const showError = !isLoading && isError;
   const showData = !isLoading && !isError && !!data?.result.length;
@@ -37,7 +42,7 @@ const JokeList = ({favourites, onFavouriteChange, fetchedData, className}) => {
 
 JokeList.propTypes = {
   onFavouriteChange: T.func.isRequired,
-  fetchedData: T.object.isRequired,
+  apiRequestData: T.object.isRequired,
   favourites: T.array.isRequired,
 };
 

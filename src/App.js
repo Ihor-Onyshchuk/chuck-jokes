@@ -20,7 +20,7 @@ const getStorageItem = key => {
 const App = () => {
   const [isModalOpen, toggleModalOpen] = useState(false);
   const [favourites, setFavourites] = useState([]);
-  const [fetchedData, doFetch] = useChuckApi();
+  const [apiRequestData, doFetch] = useChuckApi();
 
   useEffect(() => {
     setFavourites(getStorageItem('favourites'));
@@ -30,7 +30,9 @@ const App = () => {
     localStorage.setItem('favourites', JSON.stringify(favourites));
   }, [favourites]);
 
-  handlePreventScroll(isModalOpen ? 'add' : 'remove');
+  useEffect(() => {
+    handlePreventScroll(isModalOpen ? 'add' : 'remove');
+  });
 
   const handleFormSubmit = url => doFetch(url);
 
@@ -57,7 +59,7 @@ const App = () => {
             <Form onSubmit={handleFormSubmit} />
 
             <JokeList
-              fetchedData={fetchedData}
+              apiRequestData={apiRequestData}
               favourites={favourites}
               onFavouriteChange={handleFavouritesUpdate}
               className="main-card rounded-lg mb-3 p-md-4"
@@ -75,19 +77,18 @@ const App = () => {
           </div>
         </div>
       </div>
-      <Animation show={isModalOpen}>
-        <Modal
-          isOpen={isModalOpen}
-          onClose={toggleModalOpen}
-          className="d-xl-none"
-        >
-          <FavouriteList
-            favourites={favourites}
-            onFavouriteChange={handleFavouritesUpdate}
-            className="modal-card rounded-sm"
-          />
-        </Modal>
-      </Animation>
+
+      <Modal
+        isOpen={isModalOpen}
+        onClose={toggleModalOpen}
+        className="d-xl-none"
+      >
+        <FavouriteList
+          favourites={favourites}
+          onFavouriteChange={handleFavouritesUpdate}
+          className="modal-card rounded-sm"
+        />
+      </Modal>
     </>
   );
 };
