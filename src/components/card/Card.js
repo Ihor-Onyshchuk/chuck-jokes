@@ -2,9 +2,10 @@ import React from 'react';
 import cx from 'classnames';
 import T from 'prop-types';
 
-import './Card.scss';
 import Avatar from '../avatar/Avatar';
 import {dateToHours} from '../../utils/dateToHours';
+
+import './Card.scss';
 
 const Card = ({
   joke,
@@ -38,7 +39,7 @@ const Card = ({
               </a>
             </div>
             <p
-              className={`card-text ${
+              className={`card-text text-wrap ${
                 inFavouriteList ? 'fz-14 lh-20' : 'fz-18'
               }`}
             >

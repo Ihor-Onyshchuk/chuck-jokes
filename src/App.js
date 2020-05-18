@@ -31,7 +31,7 @@ const App = () => {
 
   useEffect(() => {
     handlePreventScroll(isModalOpen ? 'add' : 'remove');
-  });
+  }, [isModalOpen]);
 
   const handleFormSubmit = url => doFetch(url);
 
@@ -53,16 +53,14 @@ const App = () => {
             <Header
               toggleModalOpen={toggleModalOpen}
               isModalOpen={isModalOpen}
-              className="mb-4"
             />
 
-            <Form onSubmit={handleFormSubmit} className="mb-4" />
+            <Form onSubmit={handleFormSubmit} />
 
             <JokeList
-              apiRequestData={apiRequestData}
               favourites={favourites}
+              apiRequestData={apiRequestData}
               onFavouriteChange={handleFavouritesUpdate}
-              className="main-card rounded-lg mb-3 p-md-4"
             />
           </div>
           <div className="d-none d-xl-flex col-xl-5 layout-offset flex-column bg-light">
@@ -85,7 +83,6 @@ const App = () => {
         <FavouriteList
           favourites={favourites}
           onFavouriteChange={handleFavouritesUpdate}
-          className="modal-card rounded-sm mb-3"
         />
       </Modal>
     </>

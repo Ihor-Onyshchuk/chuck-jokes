@@ -26,6 +26,7 @@ Categories.propTypes = {
   options: T.arrayOf(T.string).isRequired,
   active: T.string.isRequired,
   onChange: T.func.isRequired,
+  className: T.string,
 };
 
 export default Categories;

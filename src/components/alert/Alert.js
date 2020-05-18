@@ -7,7 +7,7 @@ const Alert = ({type = 'info', text}) => (
   </div>
 );
 
-Alert.propsTypes = {
+Alert.propTypes = {
   type: T.string,
   text: T.string.isRequired,
 };

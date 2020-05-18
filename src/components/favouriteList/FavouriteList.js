@@ -3,7 +3,7 @@ import T from 'prop-types';
 
 import Card from '../card/Card';
 
-const FavouriteList = ({favourites, onFavouriteChange, className}) => (
+const FavouriteList = ({favourites, onFavouriteChange}) => (
   <>
     {favourites.map(favourite => (
       <Card

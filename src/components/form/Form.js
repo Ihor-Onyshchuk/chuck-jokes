@@ -1,12 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import cx from 'classnames';
+import T from 'prop-types';
 
 import RadionButton from '../radioButton/RadioButton';
 import Categories from '../categories/Categories';
 import InputText from '../inputText/InputText';
 import {getCategories} from '../../api';
 
-const Form = ({onSubmit, className}) => {
+const Form = ({onSubmit, className = 'mb-4'}) => {
   const [mode, setMode] = useState('random');
   const [category, setCategory] = useState();
   const [query, setQuery] = useState('');
@@ -27,6 +28,8 @@ const Form = ({onSubmit, className}) => {
   const handleFormSubmit = event => {
     event.preventDefault();
     if (mode === 'search' && query.trim() === '') return;
+    if (mode === 'category' && !category) return;
+
     const apiUrlsMapper = {
       random: '/random',
       categories: `/random?category=${category}`,
@@ -82,6 +85,11 @@ const Form = ({onSubmit, className}) => {
       </button>
     </form>
   );
+};
+
+Form.propTypes = {
+  onSubmit: T.func.isRequired,
+  className: T.string,
 };
 
 export default Form;

@@ -7,7 +7,7 @@ import cx from 'classnames';
 import './Modal.scss';
 import Animation from '../animation/Animation';
 
-const Modal = ({onClose, children, className, isOpen}) => {
+const Modal = ({isOpen, onClose, children, className}) => {
   const handleModalClose = () => onClose(false);
   return createPortal(
     <Animation show={isOpen}>
@@ -29,6 +29,7 @@ const Modal = ({onClose, children, className, isOpen}) => {
 Modal.propTypes = {
   onClose: T.func.isRequired,
   children: T.element,
+  className: T.string,
 };
 
 export default Modal;

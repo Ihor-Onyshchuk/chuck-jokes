@@ -2,15 +2,10 @@ import React from 'react';
 import T from 'prop-types';
 
 import Card from '../card/Card';
-import Spiner from '../spiner/Spiner';
 import Alert from '../alert/Alert';
+import Spiner from '../spiner/Spiner';
 
-const JokeList = ({
-  favourites,
-  onFavouriteChange,
-  apiRequestData,
-  className,
-}) => {
+const JokeList = ({favourites, apiRequestData, ...restProps}) => {
   const {data, isLoading, isError} = apiRequestData;
   const showInit = !isLoading && data === undefined;
   const showError = !isLoading && isError;
@@ -27,10 +22,10 @@ const JokeList = ({
         data.result.map(joke => (
           <Card
             key={joke.id}
+            {...restProps}
             joke={joke}
             isFavourite={favourites.some(({id}) => id === joke.id)}
-            onFavouriteChange={onFavouriteChange}
-            className={className}
+            className="main-card rounded-lg mb-3 p-md-4"
           />
         ))}
 
