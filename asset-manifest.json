@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/chuck-jokes/static/css/main.e674e16b.chunk.css",
-    "main.js": "/chuck-jokes/static/js/main.6333fadc.chunk.js",
-    "main.js.map": "/chuck-jokes/static/js/main.6333fadc.chunk.js.map",
+    "main.css": "/chuck-jokes/static/css/main.5f610dcf.chunk.css",
+    "main.js": "/chuck-jokes/static/js/main.c385ed84.chunk.js",
+    "main.js.map": "/chuck-jokes/static/js/main.c385ed84.chunk.js.map",
     "runtime-main.js": "/chuck-jokes/static/js/runtime-main.63892202.js",
     "runtime-main.js.map": "/chuck-jokes/static/js/runtime-main.63892202.js.map",
     "static/js/2.a10281f4.chunk.js": "/chuck-jokes/static/js/2.a10281f4.chunk.js",
     "static/js/2.a10281f4.chunk.js.map": "/chuck-jokes/static/js/2.a10281f4.chunk.js.map",
     "index.html": "/chuck-jokes/index.html",
-    "precache-manifest.c050ff7db42cc524c06457b3bddc454f.js": "/chuck-jokes/precache-manifest.c050ff7db42cc524c06457b3bddc454f.js",
+    "precache-manifest.d529bd2d2b9e9759c8b3447882f26e5a.js": "/chuck-jokes/precache-manifest.d529bd2d2b9e9759c8b3447882f26e5a.js",
     "service-worker.js": "/chuck-jokes/service-worker.js",
-    "static/css/main.e674e16b.chunk.css.map": "/chuck-jokes/static/css/main.e674e16b.chunk.css.map",
+    "static/css/main.5f610dcf.chunk.css.map": "/chuck-jokes/static/css/main.5f610dcf.chunk.css.map",
     "static/js/2.a10281f4.chunk.js.LICENSE.txt": "/chuck-jokes/static/js/2.a10281f4.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.63892202.js",
     "static/js/2.a10281f4.chunk.js",
-    "static/css/main.e674e16b.chunk.css",
-    "static/js/main.6333fadc.chunk.js"
+    "static/css/main.5f610dcf.chunk.css",
+    "static/js/main.c385ed84.chunk.js"
   ]
 }

@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8be6c5554c710d1eda7f8cb881f5c3d7",
+    "revision": "ec492bbd4b2748b19ca8819556278d0e",
     "url": "/chuck-jokes/index.html"
   },
   {
-    "revision": "7ea58ea5091d963322f0",
-    "url": "/chuck-jokes/static/css/main.e674e16b.chunk.css"
+    "revision": "0e9eb3652f386bcd4b0e",
+    "url": "/chuck-jokes/static/css/main.5f610dcf.chunk.css"
   },
   {
     "revision": "430ee712491a03323648",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/chuck-jokes/static/js/2.a10281f4.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "7ea58ea5091d963322f0",
-    "url": "/chuck-jokes/static/js/main.6333fadc.chunk.js"
+    "revision": "0e9eb3652f386bcd4b0e",
+    "url": "/chuck-jokes/static/js/main.c385ed84.chunk.js"
   },
   {
     "revision": "1980b2a2e9fae2db5c6e",
