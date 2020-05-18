@@ -1,0 +1,48 @@
+// Category btn
+%category-shared {
+  margin-top: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.category-btn {
+  @extend %category-shared;
+  background: $white;
+  border: 2px solid $gray-100;
+  color: $gray-600;
+
+  @include hover-focus-active {
+    color: $gray-900;
+    background: $gray-100;
+  }
+
+  &:not(:nth-last-child(1)) {
+    margin-right: 0.5rem;
+  }
+}
+
+.card-category {
+  @extend %category-shared;
+  color: $gray-900;
+  border-radius: 6px;
+
+  &.light {
+    background: $white;
+  }
+
+  &.gray {
+    background: $gray-100;
+  }
+}
+
+.btn-gradient {
+  opacity: 0.9;
+  background: linear-gradient(92.01deg, #8ea7ff 0%, #7291ff 100%);
+  color: $white;
+  transition: opacity linear 0.15s;
+
+  &:hover {
+    opacity: 1;
+  }
+}

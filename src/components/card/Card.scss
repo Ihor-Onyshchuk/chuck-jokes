@@ -1,0 +1,25 @@
+@import '../../assets/scss/variables.scss';
+
+.card-wrapper {
+  width: 100%;
+  height: auto;
+  max-width: 680px;
+  min-height: 194px;
+  position: relative;
+
+  .main-card {
+    max-width: 680px;
+    background-color: $gray-100;
+  }
+}
+
+.modal-card {
+  background: $white;
+  border: 1px solid $gray-100;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+  .message {
+    background-color: $gray-100;
+  }
+}

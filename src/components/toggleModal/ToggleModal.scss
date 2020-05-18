@@ -1,0 +1,60 @@
+%before-after-shared {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 50%;
+  height: 2px;
+  background: #fff;
+  transform: translateX(-50%);
+}
+
+.toggle-modal {
+  position: relative;
+  z-index: 1030;
+
+  .menu-icon {
+    position: relative;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    background: #333;
+    border-radius: 50%;
+
+    &:before {
+      @extend %before-after-shared;
+      top: 10px;
+    }
+
+    &:after {
+      @extend %before-after-shared;
+      bottom: 10px;
+    }
+  }
+
+  &.active {
+    position: fixed;
+    right: 20px;
+    z-index: 1030;
+
+    @media (min-width: 768px) {
+      right: 40px;
+    }
+
+    .menu-icon {
+      &:before,
+      &:after {
+        top: 50%;
+        left: 50%;
+        transition: transform 0.15s linear;
+      }
+
+      &:before {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+
+      &:after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+    }
+  }
+}

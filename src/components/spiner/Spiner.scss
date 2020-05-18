@@ -1,0 +1,96 @@
+@keyframes spin {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.loading-spiner {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  overflow: hidden;
+  background: none;
+  position: absolute;
+  z-index: 3;
+
+  .loading {
+    width: 137px;
+    height: 137px;
+    position: relative;
+    margin: 0 auto;
+    transform: translateZ(0) scale(1);
+    backface-visibility: hidden;
+    transform-origin: 0 0;
+    top: 50%;
+    transform: translate(0, -50%);
+
+    div {
+      box-sizing: content-box;
+      left: 61.650000000000006px;
+      top: 41.1px;
+      position: absolute;
+      animation: spin linear 1.0416666666666665s infinite;
+      background: #7291ff;
+      width: 13.700000000000001px;
+      height: 5.48px;
+      border-radius: 3.4250000000000003px / 2.74px;
+      transform-origin: 6.8500000000000005px 27.400000000000002px;
+
+      &:nth-child(1) {
+        transform: rotate(0deg);
+        animation-delay: -0.9259259259259258s;
+        background: #7291ff;
+      }
+
+      &:nth-child(2) {
+        transform: rotate(40deg);
+        animation-delay: -0.8101851851851851s;
+        background: #7291ff;
+      }
+
+      &:nth-child(3) {
+        transform: rotate(80deg);
+        animation-delay: -0.6944444444444444s;
+        background: #7291ff;
+      }
+
+      &:nth-child(4) {
+        transform: rotate(120deg);
+        animation-delay: -0.5787037037037037s;
+        background: #7291ff;
+      }
+
+      &:nth-child(5) {
+        transform: rotate(160deg);
+        animation-delay: -0.4629629629629629s;
+        background: #7291ff;
+      }
+
+      &:nth-child(6) {
+        transform: rotate(200deg);
+        animation-delay: -0.3472222222222222s;
+        background: #7291ff;
+      }
+
+      &:nth-child(7) {
+        transform: rotate(240deg);
+        animation-delay: -0.23148148148148145s;
+        background: #7291ff;
+      }
+
+      &:nth-child(8) {
+        transform: rotate(280deg);
+        animation-delay: -0.11574074074074073s;
+        background: #7291ff;
+      }
+
+      &:nth-child(9) {
+        transform: rotate(320deg);
+        animation-delay: 0s;
+        background: #7291ff;
+      }
+    }
+  }
+}

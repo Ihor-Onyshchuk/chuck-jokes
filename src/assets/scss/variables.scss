@@ -1,0 +1,87 @@
+// Customization bootstrap
+
+// Colors
+$white: #fff;
+$gray-100: #f8f8f8;
+$gray-600: #ababab;
+$gray-900: #333;
+$blue: #8ea7ff;
+$red: #ff6767;
+
+// Options
+$enable-responsive-font-sizes: true;
+
+// Spacing
+$spacer: 1.25rem;
+
+// Links
+$link-decoration: underline;
+
+// Paragraphs
+$paragraph-margin-bottom: 1.25rem;
+
+// Components
+$border-width: 2px;
+$border-color: $gray-600;
+
+$border-radius: 0.625rem;
+$border-radius-lg: 1.25rem;
+$border-radius-sm: 0.675rem;
+
+$box-shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+// Typography
+$font-family-base: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+  Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+
+$headings-margin-bottom: 0;
+$text-muted: $gray-600;
+
+// Buttons + Forms
+$input-btn-padding-y: 0.625rem;
+$input-btn-padding-x: 1rem;
+$input-btn-line-height: 1.4;
+
+$input-btn-padding-y-sm: 0.375rem;
+$input-btn-padding-x-sm: 0.9375rem;
+$input-btn-font-size-sm: 0.75rem;
+$input-btn-line-height-sm: 1;
+
+$input-btn-padding-y-lg: 0.5rem;
+$input-btn-padding-x-lg: 2rem;
+$input-btn-font-size-lg: 1rem;
+$input-btn-line-height-lg: 1.4;
+
+$input-btn-focus-width: 0;
+$input-btn-focus-color: transparent;
+$input-btn-focus-box-shadow: none;
+
+$btn-border-radius-sm: 6px;
+$btn-border-width: 0;
+
+$btn-border-radius-lg: 10px;
+
+$input-placeholder-color: $gray-600;
+$input-focus-border-color: $gray-900;
+$input-focus-box-shadow: 0;
+
+$custom-control-gutter: 0.9375rem;
+$custom-control-indicator-size: 1.25rem;
+$custom-control-indicator-bg-size: 67% 67%;
+$custom-control-indicator-border-color: $gray-600;
+$custom-control-indicator-border-width: 2px;
+$custom-control-indicator-active-border-color: $gray-900;
+$custom-control-indicator-checked-color: $gray-900;
+$custom-control-indicator-checked-bg: $white;
+$custom-control-indicator-checked-border-color: $gray-900;
+
+// Navbar
+$navbar-padding-x: 0;
+$navbar-padding-y: 1.25rem;
+$navbar-brand-font-size: 1.25rem;
+$navbar-brand-height: 1.75;
+
+// Cards
+$card-spacer-y: 0.625rem;
+$card-spacer-x: 0.625rem;
+$card-border-width: 0;
