@@ -7,12 +7,9 @@ This app uses free [JSON API](https://api.chucknorris.io/) for hand-curated Chuc
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Usage
-```
-1. Clone project
-2. Run npm install
-3. Run npm start
-
-```
+* Clone project
+* Run `npm install`
+* Run `npm start`
 
 Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
