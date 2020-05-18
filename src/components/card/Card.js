@@ -36,7 +36,7 @@ const Card = ({
           <div className="flex-grow-1">
             <div className="card-title mb-1 fz-10 lh-14 fw-500">
               <span className="text-muted">ID: </span>
-              <a href={url}>
+              <a href={url} rel="noopener noreferrer nofollow" target="_blank">
                 {id} <span className="icon-link text-primary ml-1" />
               </a>
             </div>
