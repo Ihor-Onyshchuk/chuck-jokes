@@ -21,7 +21,9 @@ const Card = ({
     <div className={cx('border-0 p-2', className)}>
       <div className="card-header bg-transparent text-right border-0 pb-0">
         <span
-          className={`icon-heart${isFavourite ? '-fill' : ''} text-danger`}
+          className={`icon-heart${
+            isFavourite ? '-fill' : ''
+          } text-danger cursor-pointer`}
           onClick={handleFavouriteChange}
           tabIndex="0"
         />
@@ -39,7 +41,7 @@ const Card = ({
               </a>
             </div>
             <p
-              className={`card-text text-wrap ${
+              className={`card-text text-brake ${
                 inFavouriteList ? 'fz-14 lh-20' : 'fz-18'
               }`}
             >

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef, useEffect} from 'react';
 import cx from 'classnames';
 import T from 'prop-types';
 
@@ -7,15 +7,23 @@ const InputText = ({
   value,
   onChange,
   className = 'mb-3 lh-22',
-}) => (
-  <input
-    className={cx('form-control', className)}
-    type="text"
-    placeholder={placeholder}
-    value={value}
-    onChange={onChange}
-  />
-);
+}) => {
+  const inputRef = useRef();
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
+  return (
+    <input
+      className={cx('form-control', className)}
+      type="text"
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}
+      ref={inputRef}
+    />
+  );
+};
 
 InputText.propTypes = {
   value: T.string.isRequired,

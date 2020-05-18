@@ -45,4 +45,13 @@
   &:hover {
     opacity: 1;
   }
+
+  &:disabled {
+    color: $white;
+    cursor: not-allowed;
+
+    &:hover {
+      opacity: 0.65;
+    }
+  }
 }

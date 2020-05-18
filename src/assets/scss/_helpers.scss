@@ -1,4 +1,4 @@
-//font-weights
+// font-weights
 $font-weights: 500, 700;
 
 @each $font-weight in $font-weights {
@@ -7,7 +7,7 @@ $font-weights: 500, 700;
   }
 }
 
-//font-sizes
+// font-sizes
 $font-sizes: 10, 14, 16, 18, 20, 24, 32;
 
 @each $font-size in $font-sizes {
@@ -22,5 +22,14 @@ $line-heights: 14, 20, 22, 26, 28, 44;
 @each $line-height in $line-heights {
   .lh-#{$line-height} {
     line-height: #{$line-height}px;
+  }
+}
+
+// cursors
+$cursors: pointer;
+
+@each $cursor in $cursors {
+  .cursor-#{$cursor} {
+    cursor: #{$cursor};
   }
 }

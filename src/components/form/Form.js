@@ -21,14 +21,21 @@ const Form = ({onSubmit, className = 'mb-4'}) => {
     })();
   }, []);
 
+  const isSubmitDisabled = () =>
+    (mode === 'search' && query.trim() === '') ||
+    (mode === 'category' && !category);
+
   const handleCategoryChange = category => setCategory(category);
-  const handleRadioChange = event => setMode(event.target.value);
   const handleInputChange = event => setQuery(event.target.value);
+  const handleRadioChange = event => {
+    setMode(event.target.value);
+    setCategory(categories[0]);
+    setQuery('');
+  };
 
   const handleFormSubmit = event => {
     event.preventDefault();
-    if (mode === 'search' && query.trim() === '') return;
-    if (mode === 'category' && !category) return;
+    if (isSubmitDisabled()) return;
 
     const apiUrlsMapper = {
       random: '/random',
@@ -80,6 +87,7 @@ const Form = ({onSubmit, className = 'mb-4'}) => {
       <button
         className="btn btn-lg btn-primary btn-gradient fw-700 lh-22"
         type="submit"
+        disabled={isSubmitDisabled()}
       >
         Get a joke
       </button>

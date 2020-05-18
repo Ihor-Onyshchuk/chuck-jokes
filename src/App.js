@@ -47,8 +47,8 @@ const App = () => {
 
   return (
     <>
-      <div className="container-xl">
-        <div className="row">
+      <div className="container-xl h-100">
+        <div className="row h-100">
           <div className="col-12 col-xl-7 layout-offset">
             <Header
               toggleModalOpen={toggleModalOpen}
