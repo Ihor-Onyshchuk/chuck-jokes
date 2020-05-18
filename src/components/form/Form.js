@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react';
+import cx from 'classnames';
 
 import RadionButton from '../radioButton/RadioButton';
 import Categories from '../categories/Categories';
 import InputText from '../inputText/InputText';
 import {getCategories} from '../../api';
 
-const Form = ({onSubmit}) => {
+const Form = ({onSubmit, className}) => {
   const [mode, setMode] = useState('random');
   const [category, setCategory] = useState();
   const [query, setQuery] = useState('');
@@ -35,7 +36,7 @@ const Form = ({onSubmit}) => {
   };
 
   return (
-    <form className="form mb-4 pt-1" onSubmit={handleFormSubmit}>
+    <form className={cx('form pt-1', className)} onSubmit={handleFormSubmit}>
       <div className="form-group">
         <RadionButton
           label="Random"

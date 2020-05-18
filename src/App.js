@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import Animation from './components/animation/Animation';
 
 import Form from './components/form/Form';
 import Modal from './components/modal/Modal';
@@ -54,9 +53,10 @@ const App = () => {
             <Header
               toggleModalOpen={toggleModalOpen}
               isModalOpen={isModalOpen}
+              className="mb-4"
             />
 
-            <Form onSubmit={handleFormSubmit} />
+            <Form onSubmit={handleFormSubmit} className="mb-4" />
 
             <JokeList
               apiRequestData={apiRequestData}
@@ -72,7 +72,6 @@ const App = () => {
             <FavouriteList
               favourites={favourites}
               onFavouriteChange={handleFavouritesUpdate}
-              className="modal-card rounded-sm"
             />
           </div>
         </div>
@@ -86,7 +85,7 @@ const App = () => {
         <FavouriteList
           favourites={favourites}
           onFavouriteChange={handleFavouritesUpdate}
-          className="modal-card rounded-sm"
+          className="modal-card rounded-sm mb-3"
         />
       </Modal>
     </>

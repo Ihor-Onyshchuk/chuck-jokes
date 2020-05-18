@@ -20,7 +20,7 @@ const JokeList = ({
   return (
     <div className="card-wrapper">
       {showInit && (
-        <Alert text=" Click on the button above for getting a joke " />
+        <Alert text="Click on the button above for getting a joke" />
       )}
       {isLoading && <Spiner />}
       {showData &&

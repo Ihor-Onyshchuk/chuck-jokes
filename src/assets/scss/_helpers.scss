@@ -1,5 +1,5 @@
 //font-weights
-$font-weights: 500, 600, 700;
+$font-weights: 500, 700;
 
 @each $font-weight in $font-weights {
   .fw-#{$font-weight} {
@@ -8,7 +8,7 @@ $font-weights: 500, 600, 700;
 }
 
 //font-sizes
-$font-sizes: 10, 12, 14, 16, 18, 20, 24, 32;
+$font-sizes: 10, 14, 16, 18, 20, 24, 32;
 
 @each $font-size in $font-sizes {
   .fz-#{$font-size} {
@@ -17,7 +17,7 @@ $font-sizes: 10, 12, 14, 16, 18, 20, 24, 32;
 }
 
 // line-heights
-$line-heights: 14, 16, 20, 22, 26, 28, 44;
+$line-heights: 14, 20, 22, 26, 28, 44;
 
 @each $line-height in $line-heights {
   .lh-#{$line-height} {

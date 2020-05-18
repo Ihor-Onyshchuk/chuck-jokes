@@ -3,22 +3,20 @@ import T from 'prop-types';
 
 import Card from '../card/Card';
 
-const FavouriteList = ({favourites, onFavouriteChange, className}) => {
-  return (
-    <>
-      {favourites.map(favourite => (
-        <Card
-          key={favourite.id}
-          joke={favourite}
-          isFavourite
-          inFavouriteList
-          onFavouriteChange={onFavouriteChange}
-          className={className}
-        />
-      ))}
-    </>
-  );
-};
+const FavouriteList = ({favourites, onFavouriteChange, className}) => (
+  <>
+    {favourites.map(favourite => (
+      <Card
+        key={favourite.id}
+        joke={favourite}
+        isFavourite
+        inFavouriteList
+        onFavouriteChange={onFavouriteChange}
+        className="modal-card rounded-sm mb-3"
+      />
+    ))}
+  </>
+);
 
 FavouriteList.propTypes = {
   favourites: T.array.isRequired,

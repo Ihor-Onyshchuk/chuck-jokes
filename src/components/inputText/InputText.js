@@ -7,17 +7,15 @@ const InputText = ({
   value,
   onChange,
   className = 'mb-3 lh-22',
-}) => {
-  return (
-    <input
-      className={cx('form-control', className)}
-      type="text"
-      placeholder={placeholder}
-      value={value}
-      onChange={onChange}
-    />
-  );
-};
+}) => (
+  <input
+    className={cx('form-control', className)}
+    type="text"
+    placeholder={placeholder}
+    value={value}
+    onChange={onChange}
+  />
+);
 
 InputText.propTypes = {
   value: T.string.isRequired,

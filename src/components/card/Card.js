@@ -2,8 +2,8 @@ import React from 'react';
 import cx from 'classnames';
 import T from 'prop-types';
 
-import Avatar from '../avatar/Avatar';
 import './Card.scss';
+import Avatar from '../avatar/Avatar';
 import {dateToHours} from '../../utils/dateToHours';
 
 const Card = ({
@@ -11,12 +11,13 @@ const Card = ({
   inFavouriteList,
   isFavourite,
   onFavouriteChange,
-  className,
+  className = 'mb-3',
 }) => {
   const {id, value, updated_at, categories, url, icon_url} = joke;
   const handleFavouriteChange = () => onFavouriteChange(joke);
+
   return (
-    <div className={cx('border-0 mb-3 p-2', className)}>
+    <div className={cx('border-0 p-2', className)}>
       <div className="card-header bg-transparent text-right border-0 pb-0">
         <span
           className={`icon-heart${isFavourite ? '-fill' : ''} text-danger`}
@@ -30,10 +31,10 @@ const Card = ({
             <Avatar src={icon_url} />
           </div>
           <div className="flex-grow-1">
-            <div className="card-title mb-1 fz-10 lh-14 fw-500 ">
+            <div className="card-title mb-1 fz-10 lh-14 fw-500">
               <span className="text-muted">ID: </span>
               <a href={url}>
-                {id} <span className=" icon-link text-primary ml-1" />
+                {id} <span className="icon-link text-primary ml-1" />
               </a>
             </div>
             <p

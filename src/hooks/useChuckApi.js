@@ -20,7 +20,6 @@ export const useChuckApi = () => {
       }
       setData(result);
     } catch (error) {
-      console.log('error', error);
       setIsError(true);
     }
 
