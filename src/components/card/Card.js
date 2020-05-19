@@ -41,7 +41,7 @@ const Card = ({
               </a>
             </div>
             <p
-              className={`card-text text-brake ${
+              className={`card-text text-break ${
                 inFavouriteList ? 'fz-14 lh-20' : 'fz-18'
               }`}
             >
