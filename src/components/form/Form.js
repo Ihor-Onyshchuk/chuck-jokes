@@ -88,6 +88,7 @@ const Form = ({onSubmit, className = 'mb-4'}) => {
         className="btn btn-lg btn-primary btn-gradient fw-700 lh-22"
         type="submit"
         disabled={isSubmitDisabled()}
+        data-testid="submit-button"
       >
         Get a joke
       </button>
