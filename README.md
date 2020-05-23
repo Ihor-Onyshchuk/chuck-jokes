@@ -14,6 +14,9 @@ These instructions will get you a copy of the project up and running on your loc
 Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+#For starting tests
+* Run `npm run test`
+
 ### Live demo
 
 > Open [Live demo](https://ihor-onyshchuk.github.io/chuck-jokes/)
