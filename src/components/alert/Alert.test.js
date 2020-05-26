@@ -14,7 +14,7 @@ describe('Alert', () => {
     expect(wrapper.text()).toBe('test message');
   });
 
-  it('should has default class', () => {
+  it('should have default class', () => {
     expect(wrapper.hasClass('alert-info')).toBeTruthy();
   });
 
